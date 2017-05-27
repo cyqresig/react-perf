@@ -3,13 +3,23 @@
  * @author chenyiqin
  */
 
-import React, {Component,} from 'react'
+import React, { Component, } from 'react'
 // import { bindActionCreators, } from 'redux'
 import { connect, } from 'react-redux'
 
 import action from '../action'
 import Todo from '../component/Todo'
 import './TodoListContainer.pcss'
+
+
+const fakeTodos = []
+for (let i = 0; i < 10000; i++) {
+    fakeTodos.push({
+        "id": i + 1,
+        "title": `todo-${i + 1}`,
+        "complete": true
+    })
+}
 
 @connect(
     state => ({
@@ -37,10 +47,13 @@ class TodoListContainer extends Component {
 
     componentDidMount() {
         const {
-            getTodoList,
+            // getTodoList,
+            receiveTodoList,
         } = this.props
+        //
+        // getTodoList()
 
-        getTodoList()
+        receiveTodoList(fakeTodos)
     }
 
     handleAddTodoClick = () => {
@@ -54,14 +67,12 @@ class TodoListContainer extends Component {
     render() {
         const {
             todoList: {
-               todos,
-               fetching,
+                todos,
+                fetching,
             },
             removeTodo,
             router,
         } = this.props
-
-        console.log(`todos.length = `, todos.length)    // eslint-disable-line
 
         return (
             <div className="todo-list">

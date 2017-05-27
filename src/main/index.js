@@ -4,6 +4,8 @@
  */
 
 import renderPage from '../pages/index'
+import Perf from 'react-addons-perf'
+window.Perf = Perf
 
 renderPage()
 

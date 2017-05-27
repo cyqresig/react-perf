@@ -12,7 +12,7 @@ const fetchingTodoList = (fetching) => ({
     fetching,
 })
 
-const receiveTodoList = (todos) => ({
+export const receiveTodoList = (todos) => ({
     type: actionType.GET_TODO_LIST,
     todos,
 })

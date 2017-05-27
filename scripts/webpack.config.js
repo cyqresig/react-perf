@@ -26,6 +26,11 @@ const VIEW_FOLDER = `view`
 const COMMON_CHUNK_NAME = `common`
 const NODE_ENV = process.env.NODE_ENV || PRODUCTION
 
+const perfRule = {
+    test: require.resolve("react-addons-perf"),
+    use: "expose-loader?Perf"
+}
+
 const jsRule = {
     test: /\.js$/,
     exclude: /node_modules/,
@@ -108,6 +113,7 @@ const webpackConfig = {
             lessRule,
             fileRule,
             pcssRule,
+            perfRule,
         ],
     },
     plugins: [
