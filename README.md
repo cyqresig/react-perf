@@ -1,6 +1,6 @@
 ## react-component-template
 
-A multiple-page project template for react with webpack
+A example to demonstrate how to check performance of react
 
 ## Installation
 
